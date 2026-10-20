@@ -59,7 +59,10 @@ namespace Husky
             { "t6mp",               new GameDefinition(0xD4B340,          0xD4AF80,       "mp",               BlackOps2.ExportBSPData) },
             { "t6sp",               new GameDefinition(0xBD46B8,          0xBD42F8,       "sp",               BlackOps2.ExportBSPData) },
             // Call of Duty: Black Ops III
-            { "BlackOps3",          new GameDefinition(0x94073F0,         0,              "core",             BlackOps3.ExportBSPData) },
+            // AryaBlue fork 2026-10-20: asset-pool base updated 0x94073F0 -> 0x93883F0 for the current retail BO3 build.
+            // The stale base (moved -0x7F000 after a Steam auto-update) was the cause of C2M's "this EXE is not supported";
+            // recovered by read-only memory RE (validated: XModel pool at base+0x80, itemSize 0x188, first model name "void").
+            { "BlackOps3",          new GameDefinition(0x93883F0,         0,              "core",             BlackOps3.ExportBSPData) },
             // Call of Duty: Ghosts
             { "iw6mp64_ship",       new GameDefinition(0x1409E4F20,       0x1409E4E20,    "mp",               Ghosts.ExportBSPData) },
             { "iw6sp64_ship",       new GameDefinition(0x14086DCB0,       0x14086DBB0,    "sp",               Ghosts.ExportBSPData) },
